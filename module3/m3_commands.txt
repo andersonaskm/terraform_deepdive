@@ -1,0 +1,18 @@
+# Configure an AWS profile with proper credentials
+aws configure --profile deep-dive
+
+# Linux
+export AWS_PROFILE=deep-dive
+
+# Windows
+$env:AWS_PROFILE="deep-dive"
+gci env:*
+
+# Deploy current environment
+terraform init
+terraform validate
+terraform plan -out module3.tfplan
+terraform apply "module3.tfplan"
+
+# Windows
+Install-Module AWSPowerShell.NetCore -Scope CurrentUser
